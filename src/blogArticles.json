@@ -1,0 +1,55 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "urlName": "importance-of-vpn-2024",
+      "title": "The Importance of VPN in 2024",
+      "dateCreated": "2024-03-15",
+      "author": "John Doe",
+      "topic": "VPN Security",
+      "summary": "Discover why VPNs are more crucial than ever in protecting your online privacy.",
+      "mainImage": "/images/vpn-importance.jpg",
+      "content": [
+        {
+          "id": 1,
+          "title": "Understanding VPNs",
+          "image": "/images/vpn-diagram.jpg",
+          "paragraph": "A VPN, or Virtual Private Network, creates a secure tunnel for your internet traffic..."
+        },
+        {
+          "id": 2,
+          "title": "The Growing Need for Privacy",
+          "paragraph": "In today's digital age, protecting your online privacy is more important than ever..."
+        },
+        {
+          "id": 3,
+          "title": "Visual Representation of Data Protection",
+          "image": "/images/data-protection.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "urlName": "choosing-vpn-for-travel",
+      "title": "Choosing the Right VPN for Travel",
+      "dateCreated": "2024-03-10",
+      "author": "Jane Smith",
+      "topic": "VPN Tips",
+      "summary": "Learn how to select the best VPN for your travel needs and stay secure on the go.",
+      "mainImage": "/images/travel-vpn.jpg",
+      "content": [
+        {
+          "id": 1,
+          "title": "Why You Need a VPN While Traveling",
+          "paragraph": "When traveling, a reliable VPN is essential for maintaining your online security..."
+        },
+        {
+          "id": 2,
+          "title": "Key Factors to Consider",
+          "image": "/images/vpn-comparison.jpg",
+          "paragraph": "Consider factors such as server locations, speed, and device compatibility..."
+        }
+      ]
+    }
+  ]
+}
