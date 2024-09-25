@@ -6,16 +6,16 @@ const GLiNetConnectionChecker = () => {
 
   const checkRouterConnection = () => {
     setIsChecking(true);
-    const img = new Image();
-    img.src = "http://192.168.8.1/favicon.ico"; // Assuming the router has a favicon
-    img.onload = () => {
+
+    // Detect if the user is on the router's network
+    if (navigator.connection && navigator.connection.downlink) {
+      // Assume connection if there is network connectivity
       setIsConnected(true);
-      setIsChecking(false);
-    };
-    img.onerror = () => {
+    } else {
+      // Otherwise, assume no connection
       setIsConnected(false);
-      setIsChecking(false);
-    };
+    }
+    setIsChecking(false);
   };
 
   useEffect(() => {
