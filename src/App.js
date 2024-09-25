@@ -37,7 +37,7 @@ const App = () => {
   };
 
   const Home = () => (
-    <div className="text-center p-8 pt-32 bg-black text-white min-h-screen">
+    <div className="text-center p-8 pt-32 bg-black text-white">
       <div className="banner">
         <div className="content">
           <h1 className="text-6xl font-bold mb-6">Welcome to StealthWork</h1>

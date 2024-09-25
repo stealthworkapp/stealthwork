@@ -10,7 +10,7 @@ const BlogPost = () => {
 
   if (!article) {
     return (
-      <div className="p-8 pt-32 bg-black text-white min-h-screen">
+      <div className="p-8 pt-32 bg-black text-white">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
           <p>Sorry, the article you're looking for doesn't exist.</p>
@@ -26,7 +26,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="p-8 pt-32 bg-black text-white min-h-screen">
+    <div className="p-8 pt-32 bg-black text-white">
       <div className="max-w-3xl mx-auto">
         <Link
           to="/blog"

@@ -34,7 +34,7 @@ const Blog = () => {
   return (
     <div
       id="blog-container"
-      className="p-8 pt-32 bg-black text-white min-h-screen"
+      className="p-8 pt-32 bg-black text-white"
     >
       <h2 className="text-4xl font-bold mb-12 text-center">Blog Articles</h2>
       <div className="max-w-6xl mx-auto mb-8">

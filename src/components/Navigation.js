@@ -20,6 +20,7 @@ const Navigation = () => {
 
   return (
     <>
+      {/* Navigation bar */}
       <nav className="bg-black p-4 text-white fixed w-full z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold">
@@ -29,6 +30,7 @@ const Navigation = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <div className="hidden md:flex space-x-8">
+            {/* Desktop menu items */}
             <Link
               to="/"
               className="hover:text-gray-300 transition duration-300"
@@ -70,8 +72,10 @@ const Navigation = () => {
           </div>
         </div>
       </nav>
+
+      {/* Mobile menu overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center">
           <div className="text-white text-center">
             <button
               onClick={toggleMenu}

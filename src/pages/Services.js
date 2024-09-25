@@ -17,7 +17,7 @@ const ServiceCard = ({ icon: Icon, title, description }) => (
 );
 
 const Services = () => (
-  <div className="p-8 pt-32 bg-black text-white min-h-screen">
+  <div className="p-8 pt-32 bg-black text-white">
     <h2 className="text-4xl font-bold mb-12 text-center">Our Services</h2>
 
     <section className="mb-16">
