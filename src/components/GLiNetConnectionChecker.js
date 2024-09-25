@@ -8,7 +8,8 @@ const GLiNetConnectionChecker = () => {
     setIsChecking(true);
     try {
       // Attempt to fetch the router's login page
-      await fetch("http://192.168.8.1", { mode: "no-cors" });
+      const response = await fetch("http://192.168.8.1", { mode: "no-cors" });
+      console.log(response)
       // If we get here, we assume we're connected (due to CORS, we can't actually check the response)
       setIsConnected(true);
     } catch (error) {
