@@ -4,19 +4,18 @@ const GLiNetConnectionChecker = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [isChecking, setIsChecking] = useState(true);
 
-  const checkRouterConnection = async () => {
+  const checkRouterConnection = () => {
     setIsChecking(true);
-    try {
-      // Attempt to fetch the router's login page
-      const response = await fetch("http://192.168.8.1", { mode: "no-cors" });
-      console.log(response)
-      // If we get here, we assume we're connected (due to CORS, we can't actually check the response)
+    const img = new Image();
+    img.src = "http://192.168.8.1/favicon.ico"; // Assuming the router has a favicon
+    img.onload = () => {
       setIsConnected(true);
-    } catch (error) {
-      console.error("Error checking router connection:", error);
+      setIsChecking(false);
+    };
+    img.onerror = () => {
       setIsConnected(false);
-    }
-    setIsChecking(false);
+      setIsChecking(false);
+    };
   };
 
   useEffect(() => {
@@ -43,8 +42,7 @@ const GLiNetConnectionChecker = () => {
       ) : (
         <div>
           <p className="text-red-600 mb-4">
-            Not connected to GL.iNet router. Please connect to your router's
-            WiFi network.
+            Not connected to GL.iNet router. Please connect to your router's WiFi network.
           </p>
           <button
             onClick={checkRouterConnection}
