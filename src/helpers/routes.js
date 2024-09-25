@@ -10,6 +10,7 @@ import {
   FreeTools,
   Home,
   NotFound,
+  RouterDashboard,
 } from "../pages/index";
 
 const Routes = () => {
@@ -17,11 +18,12 @@ const Routes = () => {
     <RoutesList>
       <Route path="/" element={<Home />} />
       <Route path="/services" element={<Services />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:urlName" element={<BlogPost />} />
+      <Route path="/articles" element={<Blog />} />
+      <Route path="/articles/:urlName" element={<BlogPost />} />
       <Route path="/ip-location" element={<IPLocationMap />} />
       <Route path="/speedtest" element={<SpeedTest />} />
       <Route path="/tools" element={<FreeTools />} />
+      <Route path="/glinet-router-connection" element={<RouterDashboard />} />
       <Route path="*" element={<NotFound />} />
     </RoutesList>
   );

@@ -44,10 +44,10 @@ const Navigation = () => {
               Services
             </Link>
             <Link
-              to="/blog"
+              to="/articles"
               className="hover:text-gray-300 transition duration-300"
             >
-              Blog
+              Articles
             </Link>
             <Link
               to="/tools"
@@ -99,11 +99,11 @@ const Navigation = () => {
                 </li>
                 <li>
                   <Link
-                    to="/blog"
+                    to="/articles"
                     onClick={toggleMenu}
                     className="text-2xl hover:text-gray-300 transition duration-300"
                   >
-                    Blog
+                    Articles
                   </Link>
                 </li>
                 <li>

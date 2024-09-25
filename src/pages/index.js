@@ -6,6 +6,7 @@ import Blog from "./Blog";
 import SpeedTest from "./SpeedTest";
 import FreeTools from "./FreeTools";
 import Home from "./Home";
+import RouterDashboard from "./RouterDashboard";
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   Blog,
   SpeedTest,
   FreeTools,
+  RouterDashboard,
 };

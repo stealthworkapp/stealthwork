@@ -18,7 +18,7 @@ const BlogPost = () => {
             to="/articles"
             className="text-blue-400 hover:text-blue-300 mt-4 inline-block"
           >
-            Return to Blog
+            Return to Articles
           </Link>
         </div>
       </div>
@@ -32,7 +32,7 @@ const BlogPost = () => {
           to="/articles"
           className="text-blue-400 hover:text-blue-300 mb-4 inline-block"
         >
-          &larr; Back to Blog
+          &larr; Back to Articles
         </Link>
         <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
         <div className="flex justify-between items-center mb-8">

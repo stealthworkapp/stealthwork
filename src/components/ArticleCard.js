@@ -13,7 +13,7 @@ const ArticleCard = ({ article }) => (
     </p>
     <p className="text-gray-300 mb-4">{article.summary}</p>
     <Link
-      to={`/blog/${article.urlName}`}
+      to={`/articles/${article.urlName}`}
       className="text-blue-400 hover:text-blue-300 transition duration-300 flex items-center"
     >
       Read More <span className="ml-2">&rarr;</span>

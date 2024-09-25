@@ -36,7 +36,7 @@ const Blog = () => {
       id="blog-container"
       className="p-8 pt-32 bg-black text-white"
     >
-      <h2 className="text-4xl font-bold mb-12 text-center">Blog Articles</h2>
+      <h2 className="text-4xl font-bold mb-12 text-center">Articles</h2>
       <div className="max-w-6xl mx-auto mb-8">
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
           {/* Topic filter */}
