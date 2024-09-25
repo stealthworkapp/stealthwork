@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => (
   <div className="bg-gray-900 rounded-lg overflow-hidden p-6">

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogPost from "./pages/BlogPost";
 import Services from "./pages/Services";
 import Navigation from "./components/Navigation";
@@ -7,10 +7,9 @@ import blogArticles from "./data/blogArticles.json";
 import IPLocationMap from "./pages/IPLocationMap";
 import Blog from "./pages/Blog";
 import ArticleCard from "./components/ArticleCard";
-import SpeedTest from './pages/SpeedTest'
+import SpeedTest from "./pages/SpeedTest";
 
 const App = () => {
-
   const RecentArticles = () => {
     // Sort articles by date (newest first) and take the first two
     const sortedRecentArticles = blogArticles.articles
@@ -70,7 +69,7 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:urlName" element={<BlogPost />} />
             <Route path="/ip-location" element={<IPLocationMap />} />
-            <Route path="/speedtest" element={<SpeedTest />} ></Route>
+            <Route path="/speedtest" element={<SpeedTest />}></Route>
           </Routes>
         </main>
         <footer className="bg-black p-4 text-center text-gray-500">
