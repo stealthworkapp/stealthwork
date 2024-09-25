@@ -7,14 +7,7 @@ import {
   CreditCard,
   Search,
 } from "lucide-react";
-
-const ServiceCard = ({ icon: Icon, title, description }) => (
-  <div className="bg-gray-900 p-6 rounded-lg">
-    <Icon className="w-12 h-12 text-blue-400 mb-4" />
-    <h3 className="text-xl font-semibold mb-2 text-gray-100">{title}</h3>
-    <p className="text-gray-300">{description}</p>
-  </div>
-);
+import ServiceCard from "../components/ServiceCard";
 
 const Services = () => (
   <div className="p-8 pt-32 bg-black text-white">

@@ -16,11 +16,11 @@ code {
     monospace;
 }
 
-
 /* banner */
 
 .banner {
   position: relative;
+  border-radius: 0.5rem;
   width: 100%;
   height: 60vh;
   display: flex;
@@ -38,11 +38,7 @@ code {
   right: -50%;
   bottom: -50%;
   opacity: 0.9;
-  background-image: radial-gradient(
-      circle at center center,
-      #2f2f2f,
-      #707070
-    ),
+  background-image: radial-gradient(circle at center center, #2f2f2f, #707070),
     repeating-radial-gradient(
       circle at center center,
       #2f2f2f,
@@ -52,11 +48,11 @@ code {
       transparent 11px
     );
   background-blend-mode: multiply;
-  animation: pulse 50s ease-in-out infinite;
+  animation: pulse 5s ease-in-out infinite;
 }
-.banner::after {
+/* .banner::after {
   animation-delay: -4s;
-}
+} */
 .content {
   position: relative;
   z-index: 1;
@@ -99,5 +95,3 @@ button:hover {
     transform: scale(1.5);
   }
 } */
-
-

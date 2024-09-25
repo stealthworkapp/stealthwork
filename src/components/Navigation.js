@@ -50,16 +50,10 @@ const Navigation = () => {
               Blog
             </Link>
             <Link
-              to="/ip-location"
+              to="/tools"
               className="hover:text-gray-300 transition duration-300"
             >
-              IP Location
-            </Link>
-            <Link
-              to="/speedtest"
-              className="hover:text-gray-300 transition duration-300"
-            >
-              Speed Test
+              Free Tools
             </Link>
             <a
               href="https://duranirving.setmore.com/irvingduran"
@@ -67,7 +61,7 @@ const Navigation = () => {
               rel="noopener noreferrer"
               className="hover:text-gray-300 transition duration-300"
             >
-              Book Now
+              Book Consultation
             </a>
           </div>
         </div>
@@ -128,7 +122,7 @@ const Navigation = () => {
                     rel="noopener noreferrer"
                     className="text-2xl hover:text-gray-300 transition duration-300"
                   >
-                    Book Now
+                    Book Consultation
                   </a>
                 </li>
               </ul>
