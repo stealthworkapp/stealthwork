@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 import WebsitePreview from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-datepicker/dist/react-datepicker.css';
-import './datepicker-custom.css';
+import './css/datepicker-custom.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

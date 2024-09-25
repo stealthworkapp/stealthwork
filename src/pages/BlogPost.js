@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import blogArticles from "./blogArticles.json";
+import blogArticles from "../data/blogArticles.json";
 
 const BlogPost = () => {
   const { urlName } = useParams();
