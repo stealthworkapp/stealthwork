@@ -22,12 +22,6 @@ const FreeTools = () => (
           description="Measure your internet connection's speed and performance with our comprehensive test."
           link="/speedtest"
         />
-        <ServiceCard
-          icon={Wifi}
-          title="GL.iNet Router Connection"
-          description="Set up and optimize your GL.iNet router for the best VPN performance."
-          link="/glinet-router-connection"
-        />
       </div>
     </section>
   </div>
