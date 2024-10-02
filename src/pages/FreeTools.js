@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Activity, Wifi } from "lucide-react";
+import { MapPin, Activity } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
 
 const FreeTools = () => (
