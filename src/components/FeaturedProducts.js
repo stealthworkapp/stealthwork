@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import AmazonProductCard from "./AmazonProductCard"; // Ensure this path is correct
 
 const FeaturedProducts = ({ amazonProducts }) => {
-  const products = amazonProducts?.products;
+  const allProducts = amazonProducts?.products || [];
+  const featuredProducts = allProducts.filter(product => product.featured === true);
   const [visibleProducts, setVisibleProducts] = useState([]);
   const [showMoreVisible, setShowMoreVisible] = useState(false);
   const containerRef = useRef(null);
@@ -20,19 +21,23 @@ const FeaturedProducts = ({ amazonProducts }) => {
   useEffect(() => {
     const handleResize = () => {
       const visibleCount = calculateVisibleProducts();
-      setVisibleProducts(products.slice(0, visibleCount));
-      setShowMoreVisible(products.length > visibleCount);
+      setVisibleProducts(featuredProducts.slice(0, visibleCount));
+      setShowMoreVisible(featuredProducts.length > visibleCount);
     };
 
     handleResize(); // Initial calculation
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [products]);
+  }, [featuredProducts]);
 
   const handleShowMore = () => {
-    setVisibleProducts(products);
+    setVisibleProducts(featuredProducts);
     setShowMoreVisible(false);
   };
+
+  if (featuredProducts.length === 0) {
+    return null; // Don't render the component if there are no featured products
+  }
 
   return (
     <div
