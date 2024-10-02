@@ -31,6 +31,22 @@
       "productUrl": "https://amzn.to/3Y7Z0yg",
       "featured": true,
       "productType": "tech"
+    },
+    {
+      "id": 5,
+      "name": "Cracking the Coding Interview: 189 Programming Questions and Solutions (Cracking the Interview & Career)",
+      "imageUrl": "https://m.media-amazon.com/images/I/61mIq2iJUXL._SY522_.jpg",
+      "productUrl": "https://amzn.to/47RLHoM",
+      "featured": false,
+      "productType": "books"
+    },
+    {
+      "id": 6,
+      "name": "Cracking the PM Interview: How to Land a Product Manager Job in Technology (Cracking the Interview & Career)",
+      "imageUrl": "https://m.media-amazon.com/images/I/61lpVd2HzXL._SY522_.jpg",
+      "productUrl": "https://amzn.to/3TScpI6",
+      "featured": false,
+      "productType": "books"
     }
   ]
 }
