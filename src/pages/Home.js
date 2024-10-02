@@ -1,6 +1,8 @@
 import React from "react";
 import blogArticles from "../data/blogArticles.json";
 import ArticleCard from "../components/ArticleCard";
+import amazonProducts from "../data/amazonProducts.json";
+import FeaturedProducts from "../components/FeaturedProducts";
 
 const Home = () => {
   const RecentArticles = () => {
@@ -50,6 +52,7 @@ const Home = () => {
           </a>
         </div>
       </div>
+      <FeaturedProducts amazonProducts={amazonProducts} />
       <RecentArticles />
     </div>
   );

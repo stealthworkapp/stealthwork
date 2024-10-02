@@ -1,101 +1,82 @@
 import React, { useState, useEffect } from "react";
 
-const GLiNetConnectionChecker = () => {
-  const [isLikelyConnected, setIsLikelyConnected] = useState(false);
-  const [isChecking, setIsChecking] = useState(true);
+const GLiNetDashboard = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [routerData, setRouterData] = useState(null);
+  const [token, setToken] = useState(null);
+  const [error, setError] = useState(null);
 
-  const checkPossibleRouterConnection = () => {
-    setIsChecking(true);
-
-    // Check if we're on a private network
-    const isPrivateIP = () => {
-      return new Promise((resolve) => {
-        const rtcPeerConnection = new RTCPeerConnection({ iceServers: [] });
-        rtcPeerConnection.createDataChannel("");
-        rtcPeerConnection
-          .createOffer()
-          .then((offer) => rtcPeerConnection.setLocalDescription(offer))
-          .then(() => {
-            rtcPeerConnection.onicecandidate = (ice) => {
-              if (ice && ice.candidate && ice.candidate.candidate) {
-                const ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3})/;
-                const match = ipRegex.exec(ice.candidate.candidate);
-                if (match) {
-                  const ip = match[1];
-                  resolve(
-                    ip.startsWith("10.") ||
-                      ip.startsWith("192.168.") ||
-                      (ip.startsWith("172.") &&
-                        parseInt(ip.split(".")[1]) >= 16 &&
-                        parseInt(ip.split(".")[1]) <= 31)
-                  );
-                }
-              }
-            };
-          });
+  const loginToRouter = async () => {
+    try {
+      const response = await fetch('http://192.168.8.1/cgi-bin/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          password: 'jarabacoa809', // Enter your router password here
+        }),
+        mode: 'no-cors', 
       });
-    };
+      
+      if (!response.ok) throw new Error('Login failed');
+      
+      const data = await response.json();
+      setToken(data.token);
+      setIsAuthenticated(true);
+    } catch (error) {
+      setError('Failed to authenticate');
+    }
+  };
 
-    // Check network type if available
-    const checkNetworkType = () => {
-      if (navigator.connection && navigator.connection.type) {
-        return navigator.connection.type === "wifi";
-      }
-      return null; // Unknown
-    };
-
-    Promise.all([isPrivateIP(), checkNetworkType()])
-      .then(([isPrivate, isWifi]) => {
-        setIsLikelyConnected(isPrivate && (isWifi === true || isWifi === null));
-        setIsChecking(false);
-      })
-      .catch(() => {
-        setIsLikelyConnected(false);
-        setIsChecking(false);
+  const fetchRouterData = async () => {
+    try {
+      const response = await fetch('http://192.168.8.1/cgi-bin/api/status', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
       });
+
+      if (!response.ok) throw new Error('Failed to fetch router data');
+      
+      const data = await response.json();
+      setRouterData(data);
+    } catch (error) {
+      setError('Error fetching data');
+    }
   };
 
   useEffect(() => {
-    checkPossibleRouterConnection();
-  }, []);
+    if (isAuthenticated) {
+      fetchRouterData();
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className="p-4 max-w-md mx-auto bg-gray-900 rounded-xl shadow-md">
-      <h2 className="text-xl font-bold mb-4 text-white">
-        GL.iNet Router Connection
-      </h2>
-      {isChecking ? (
-        <p className="text-white">Checking possible connection to router...</p>
-      ) : isLikelyConnected ? (
+      <h2 className="text-xl font-bold mb-4">GL.iNet Router Dashboard</h2>
+      {!isAuthenticated ? (
+        <button
+          onClick={loginToRouter}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Login to Router
+        </button>
+      ) : error ? (
+        <p className="text-red-600">{error}</p>
+      ) : routerData ? (
         <div>
-          <p className="text-green-600 mb-4">
-            You may be connected to a GL.iNet router network
-          </p>
-          <a
-            href="http://192.168.8.1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block"
-          >
-            Try GL.iNet Dashboard
-          </a>
+          <h3 className="text-lg font-bold">Router Status</h3>
+          <p>Connected Devices: {routerData.connectedDevices}</p>
+          <p>Download Speed: {routerData.downloadSpeed} Mbps</p>
+          <p>Upload Speed: {routerData.uploadSpeed} Mbps</p>
         </div>
       ) : (
-        <div>
-          <p className="text-red-600 mb-4">
-            You may not be connected to a GL.iNet router network. Please check
-            your WiFi connection.
-          </p>
-          <button
-            onClick={checkPossibleRouterConnection}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Check Again
-          </button>
-        </div>
+        <p>Loading router data...</p>
       )}
     </div>
   );
 };
 
-export default GLiNetConnectionChecker;
+export default GLiNetDashboard;
