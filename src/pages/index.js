@@ -7,6 +7,7 @@ import SpeedTest from "./SpeedTest";
 import FreeTools from "./FreeTools";
 import Home from "./Home";
 import RouterDashboard from "./RouterDashboard";
+import AmazonFinds from "./AmazonFinds";
 
 export {
   Home,
@@ -18,4 +19,5 @@ export {
   SpeedTest,
   FreeTools,
   RouterDashboard,
+  AmazonFinds,
 };
