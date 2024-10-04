@@ -1,5 +1,4 @@
 import React from "react";
-import ReactGA from "react-ga";
 import {
   Shield,
   Globe,
@@ -80,8 +79,6 @@ const WebServicesComponent = () => (
 );
 
 const Services = () => {
-  ReactGA.pageview("/services");
-
   return (
     <div className="p-8 pt-32 bg-black text-white">
       <h2 className="text-4xl font-bold mb-12 text-center">Our Services</h2>

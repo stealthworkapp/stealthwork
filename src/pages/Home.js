@@ -1,5 +1,4 @@
 import React from "react";
-import ReactGA from "react-ga";
 import blogArticles from "../data/blogArticles.json";
 import ArticleCard from "../components/ArticleCard";
 import amazonProducts from "../data/amazonProducts.json";
@@ -8,8 +7,6 @@ import SetmoreBooking from "../components/SetmoreBooking";
 import NewsletterSignupBanner from "../components/NewsletterSignupBanner";
 
 const Home = () => {
-  ReactGA.pageview('/');
-
   const RecentArticles = () => {
     // Sort articles by date (newest first) and take the first two
     const sortedRecentArticles = blogArticles.articles
