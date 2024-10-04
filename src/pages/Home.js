@@ -4,6 +4,7 @@ import ArticleCard from "../components/ArticleCard";
 import amazonProducts from "../data/amazonProducts.json";
 import FeaturedProducts from "../components/FeaturedProducts";
 import SetmoreBooking from "../components/SetmoreBooking";
+import NewsletterSignupBanner from "../components/NewsletterSignupBanner";
 
 const Home = () => {
   const RecentArticles = () => {
@@ -42,12 +43,13 @@ const Home = () => {
             Your trusted partner for VPN solutions, software development, and
             website consultation. Stay secure, stay connected, stay ahead.
           </p>
-            <SetmoreBooking/>
+          <SetmoreBooking />
         </div>
       </div>
-    
+
       <FeaturedProducts amazonProducts={amazonProducts} />
       <RecentArticles />
+      <NewsletterSignupBanner />
     </div>
   );
 };

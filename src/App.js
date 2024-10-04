@@ -4,11 +4,9 @@ import useGoogleAnalytics from "./hooks/useGoogleAnalytics";
 import Navigation from "./components/Navigation";
 import ScrollToTop from "./helpers/scrollToTop";
 import Routes from "./helpers/routes";
-import ReactGA from 'react-ga4'
 
 const App = () => {
-  // useGoogleAnalytics();
-  ReactGA.initialize('G-TXQZQRPYRP');
+  useGoogleAnalytics();
 
   return (
     <Router>
