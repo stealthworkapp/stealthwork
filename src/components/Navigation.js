@@ -35,21 +35,21 @@ const Navigation = () => {
             <Link
               to="/"
               className="hover:text-gray-300 transition duration-300"
-              onClick={useAnalyticsEventTracker("Home")}
+              onClick={useAnalyticsEventTracker("home")}
             >
               Home
             </Link>
             <Link
               to="/services"
               className="hover:text-gray-300 transition duration-300"
-              onClick={useAnalyticsEventTracker("Services")}
+              onClick={useAnalyticsEventTracker("services")}
             >
               Services
             </Link>
             <Link
               to="/articles"
               className="hover:text-gray-300 transition duration-300"
-              onClick={useAnalyticsEventTracker("Articles")}
+              onClick={useAnalyticsEventTracker("articles")}
             >
               Articles
             </Link>
@@ -58,7 +58,7 @@ const Navigation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-300 transition duration-300"
-              onClick={useAnalyticsEventTracker("Book Consultation Nav")}
+              onClick={useAnalyticsEventTracker("book")}
             >
               Book Consultation
             </a>
