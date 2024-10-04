@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import useAnalyticsEventTracker from '../hooks/useAnalyticsEventTracker';
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
+import SetmoreBooking from "./SetmoreBooking";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,15 +54,11 @@ const Navigation = () => {
             >
               Articles
             </Link>
-            <a
-              href="https://duranirving.setmore.com/irvingduran"
-              target="_blank"
-              rel="noopener noreferrer"
+            <SetmoreBooking
               className="hover:text-gray-300 transition duration-300"
+              content="Book Consultation"
               onClick={useAnalyticsEventTracker("book")}
-            >
-              Book Consultation
-            </a>
+            />
           </div>
         </div>
       </nav>
@@ -106,14 +103,10 @@ const Navigation = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://duranirving.setmore.com/irvingduran"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <SetmoreBooking
                     className="text-2xl hover:text-gray-300 transition duration-300"
-                  >
-                    Book Consultation
-                  </a>
+                    content="Book Consultation"
+                  />
                 </li>
               </ul>
             </nav>

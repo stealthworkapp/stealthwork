@@ -43,7 +43,10 @@ const Home = () => {
             Your trusted partner for VPN solutions, software development, and
             website consultation. Stay secure, stay connected, stay ahead.
           </p>
-          <SetmoreBooking />
+          <SetmoreBooking
+            className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300"
+            content="Book a Consultation"
+          />
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const SetmoreBooking = () => {
+const SetmoreBooking = (props) => {
+  const { content } = props;
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
@@ -31,12 +32,12 @@ const SetmoreBooking = () => {
     <div id="setmore-booking-container">
       {scriptLoaded && (
         <a
+          {...props}
           id="Setmore_button_iframe"
-          className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300"
           href="https://booking.setmore.com/scheduleappointment/03bc790a-7ad5-49a1-911c-13572acd0612"
           style={{ float: "none" }}
         >
-          Book a Consultation
+          {content}
         </a>
       )}
     </div>
