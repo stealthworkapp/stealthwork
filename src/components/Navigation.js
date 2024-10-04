@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import useAnalyticsEventTracker from '../hooks/useAnalyticsEventTracker';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,18 +35,21 @@ const Navigation = () => {
             <Link
               to="/"
               className="hover:text-gray-300 transition duration-300"
+              onClick={useAnalyticsEventTracker("Home")}
             >
               Home
             </Link>
             <Link
               to="/services"
               className="hover:text-gray-300 transition duration-300"
+              onClick={useAnalyticsEventTracker("Services")}
             >
               Services
             </Link>
             <Link
               to="/articles"
               className="hover:text-gray-300 transition duration-300"
+              onClick={useAnalyticsEventTracker("Articles")}
             >
               Articles
             </Link>
@@ -54,6 +58,7 @@ const Navigation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-300 transition duration-300"
+              onClick={useAnalyticsEventTracker("Book Consultation Nav")}
             >
               Book Consultation
             </a>
