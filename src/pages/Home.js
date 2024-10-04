@@ -3,6 +3,7 @@ import blogArticles from "../data/blogArticles.json";
 import ArticleCard from "../components/ArticleCard";
 import amazonProducts from "../data/amazonProducts.json";
 import FeaturedProducts from "../components/FeaturedProducts";
+import SetmoreBooking from "../components/SetmoreBooking";
 
 const Home = () => {
   const RecentArticles = () => {
@@ -41,17 +42,10 @@ const Home = () => {
             Your trusted partner for VPN solutions, software development, and
             website consultation. Stay secure, stay connected, stay ahead.
           </p>
-
-          <a
-            href="https://duranirving.setmore.com/irvingduran"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300"
-          >
-            Book a Consultation
-          </a>
+            <SetmoreBooking/>
         </div>
       </div>
+    
       <FeaturedProducts amazonProducts={amazonProducts} />
       <RecentArticles />
     </div>

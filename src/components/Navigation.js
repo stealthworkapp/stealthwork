@@ -49,12 +49,6 @@ const Navigation = () => {
             >
               Articles
             </Link>
-            <Link
-              to="/tools"
-              className="hover:text-gray-300 transition duration-300"
-            >
-              Free Tools
-            </Link>
             <a
               href="https://duranirving.setmore.com/irvingduran"
               target="_blank"
@@ -104,15 +98,6 @@ const Navigation = () => {
                     className="text-2xl hover:text-gray-300 transition duration-300"
                   >
                     Articles
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/tools"
-                    onClick={toggleMenu}
-                    className="text-2xl hover:text-gray-300 transition duration-300"
-                  >
-                    Tools
                   </Link>
                 </li>
                 <li>
