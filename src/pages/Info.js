@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Camera } from 'lucide-react';
 import { LineChart, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
-import AmazonProductCard from "../components/AmazonProductCard"; // Assuming you have this component
+// import AmazonProductCard from "../components/AmazonProductCard"; // Assuming you have this component
 import amazonProducts from "../data/amazonProducts.json"; // Assuming you have this data file
 
 const Info = () => {
@@ -18,28 +18,28 @@ const Info = () => {
     { id: 'work-recommendations', label: 'Work Recommendations' },
   ];
 
-  const routers = [
-    {
-      name: 'GL.iNet GL-AXT1800 (Flint)',
-      description: 'Recommended for creating a home VPN server or moving somewhere long term. Features dual-band Wi-Fi 6 and OpenWrt for advanced customization.',
-      link: 'https://amzn.to/49aQ2ns',
-    },
-    {
-      name: 'GL.iNet GL-MT6000 (Flint 2)',
-      description: 'More powerful than the Flint router, also recommended for creating your own VPN server. Offers faster speeds and better coverage.',
-      link: 'https://amzn.to/441VGG7',
-    },
-    {
-      name: 'GL.iNet GL-AXT1800 (Slate AX)',
-      description: 'The main recommended router for most travelers. Balances performance and portability with Wi-Fi 6 support.',
-      link: 'https://amzn.to/3pEY8CG',
-    },
-    {
-      name: 'Cheaper Travel Router',
-      description: 'A more budget-friendly option, normally used as a backup. Suitable for basic needs and shorter trips.',
-      link: 'https://amzn.to/3XJO3kq',
-    },
-  ];
+  // const routers = [
+  //   {
+  //     name: 'GL.iNet GL-AXT1800 (Flint)',
+  //     description: 'Recommended for creating a home VPN server or moving somewhere long term. Features dual-band Wi-Fi 6 and OpenWrt for advanced customization.',
+  //     link: 'https://amzn.to/49aQ2ns',
+  //   },
+  //   {
+  //     name: 'GL.iNet GL-MT6000 (Flint 2)',
+  //     description: 'More powerful than the Flint router, also recommended for creating your own VPN server. Offers faster speeds and better coverage.',
+  //     link: 'https://amzn.to/441VGG7',
+  //   },
+  //   {
+  //     name: 'GL.iNet GL-AXT1800 (Slate AX)',
+  //     description: 'The main recommended router for most travelers. Balances performance and portability with Wi-Fi 6 support.',
+  //     link: 'https://amzn.to/3pEY8CG',
+  //   },
+  //   {
+  //     name: 'Cheaper Travel Router',
+  //     description: 'A more budget-friendly option, normally used as a backup. Suitable for basic needs and shorter trips.',
+  //     link: 'https://amzn.to/3XJO3kq',
+  //   },
+  // ];
 
   const vpnServices = [
     {
@@ -84,12 +84,12 @@ const Info = () => {
   ];
 
   // Extract unique product types from amazon products
-  const productTypes = useMemo(() => {
-    const uniqueTypes = new Set(
-      amazonProducts.products.map((product) => product.productType)
-    );
-    return ["All", ...uniqueTypes];
-  }, []);
+  // const productTypes = useMemo(() => {
+  //   const uniqueTypes = new Set(
+  //     amazonProducts.products.map((product) => product.productType)
+  //   );
+  //   return ["All", ...uniqueTypes];
+  // }, []);
 
   // Filter products based on selected product type
   const filteredProducts = useMemo(() => {
