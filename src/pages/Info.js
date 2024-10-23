@@ -6,7 +6,7 @@ import amazonProducts from "../data/amazonProducts.json"; // Assuming you have t
 
 const Info = () => {
   // State for selected product type
-  const [selectedProductType, setSelectedProductType] = useState("All");
+  const [selectedProductType] = useState("All");
   const [activeSection, setActiveSection] = useState('introduction');
 
   const navItems = [
