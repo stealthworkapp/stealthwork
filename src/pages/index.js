@@ -8,6 +8,7 @@ import FreeTools from "./FreeTools";
 import Home from "./Home";
 import RouterDashboard from "./RouterDashboard";
 import AmazonFinds from "./AmazonFinds";
+import Info from './Info'
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   FreeTools,
   RouterDashboard,
   AmazonFinds,
+  Info
 };

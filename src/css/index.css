@@ -18,6 +18,47 @@ code {
 
 /* banner */
 
+@keyframes notification-slide {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 40px) scale(0.9);
+  }
+  50% {
+    transform: translate(0px, 30px) scale(1.02);
+  }
+  75% {
+    transform: translate(0px, 10px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.videoBanner {
+  position: relative;
+  border-radius: 50px;
+  margin: auto;
+  max-width: 72rem;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.videoBanner .content {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  background-color: #000000c4;
+  color: white;
+  max-width: 300px;
+  border-radius: 50px;
+  padding: 20px;
+  animation: notification-slide 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
 .banner {
   position: relative;
   border-radius: 0.5rem;

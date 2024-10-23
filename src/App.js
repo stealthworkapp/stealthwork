@@ -18,7 +18,7 @@ const App = () => {
       title: location.search,
     });
     // ReactGA.pageview(location.pathname + location.search);
-    // console.log(location.pathname + location.search);
+    console.log(location.pathname + location.search);
   }, [location]);
 
   return (

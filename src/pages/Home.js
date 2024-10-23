@@ -5,6 +5,8 @@ import amazonProducts from "../data/amazonProducts.json";
 import FeaturedProducts from "../components/FeaturedProducts";
 import SetmoreBooking from "../components/SetmoreBooking";
 import NewsletterSignupBanner from "../components/NewsletterSignupBanner";
+import notificationvid from "../moving.mp4";
+import ResponsiveBanner from '../components/ResponsiveBanner'
 
 const Home = () => {
   const RecentArticles = () => {
@@ -32,9 +34,35 @@ const Home = () => {
     );
   };
 
+  const Banner = () => {
+    return <div className="videoBanner">
+      <video autoPlay loop muted playsInline className="w-full  object-cover">
+          <source src={notificationvid} type="video/mp4" />
+        </video>
+        <div className="content left-2.5">
+          <h1 className="text-4xl font-bold mb-4 sm:mb-6">
+            Welcome to StealthWork
+          </h1>
+        </div>
+        <div className="content right-2.5 m-5">
+          <p className="mb-8 sm:mb-12 text-base sm:text-lg md:text-xl font-bold max-w-3xl mx-auto">
+            Your trusted partner for VPN solutions, software development, and
+            website consultation. Stay secure, stay connected, stay ahead.
+          </p>
+          <SetmoreBooking
+            className="bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300"
+            content="Book a Consultation"
+          />
+        </div>
+    </div>;
+  };
+
   return (
-    <div className="text-center p-8 pt-32 bg-black text-white">
-      <div className="banner">
+    <div className="text-center p-8 pt-20 bg-black text-white">
+      <ResponsiveBanner />
+      {/* <Banner /> */}
+      {/* <div className="banner">
+        
         <div className="content">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
             Welcome to StealthWork
@@ -48,7 +76,7 @@ const Home = () => {
             content="Book a Consultation"
           />
         </div>
-      </div>
+      </div> */}
 
       <FeaturedProducts amazonProducts={amazonProducts} />
       <RecentArticles />

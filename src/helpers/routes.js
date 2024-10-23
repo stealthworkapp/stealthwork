@@ -12,6 +12,7 @@ import {
   NotFound,
   RouterDashboard,
   AmazonFinds,
+  Info
 } from "../pages/index";
 
 const Routes = () => {
@@ -26,6 +27,7 @@ const Routes = () => {
       <Route path="/tools" element={<FreeTools />} />
       <Route path="/amazon-finds" element={<AmazonFinds />} />
       <Route path="/glinet-router-connection" element={<RouterDashboard />} />
+      <Route path="/info" element={<Info />} />
       <Route path="*" element={<NotFound />} />
     </RoutesList>
   );
