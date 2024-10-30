@@ -139,6 +139,286 @@
           "paragraph": "Stripe is an excellent option for businesses looking for a robust, secure, and flexible payment processing platform. Whether you're an online retailer or a brick-and-mortar business, Stripe provides the tools needed to manage transactions efficiently."
         }
       ]
+    },
+    {
+      "id": 4,
+      "urlName": "integrating-capacitor-nextjs-mobile-app-guide",
+      "title": "Converting Your Next.js App to Mobile: A Capacitor Integration Guide",
+      "dateCreated": "2024-10-30",
+      "author": "StealthWork Team",
+      "topic": "Mobile Development",
+      "summary": "Transform your Next.js web application into a powerful native mobile app using Capacitor. Learn step-by-step integration, configuration, and deployment strategies.",
+      "mainImage": "/images/capacitor-nextjs.jpg",
+      "content": [
+        {
+          "id": 1,
+          "title": "Understanding Capacitor and Next.js Integration",
+          "paragraph": "Capacitor is a powerful bridge between web applications and native platforms, enabling Next.js developers to create mobile apps without completely rewriting their codebase. This integration opens up access to native device features while maintaining the development workflow you're familiar with."
+        },
+        {
+          "id": 2,
+          "title": "Getting Started: Project Setup",
+          "paragraph": "Before diving into the integration, ensure you have Node.js (v14 or higher), npm, Next.js experience, and either Android Studio or Xcode (for iOS) installed. Let's start by creating a new Next.js project with TypeScript support:",
+          "code": {
+            "language": "bash",
+            "content": "npx create-next-app@latest myapp-mobile --typescript\ncd myapp-mobile"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Installing Capacitor Core Dependencies",
+          "paragraph": "Install the necessary Capacitor packages to enable mobile functionality:",
+          "code": {
+            "language": "bash",
+            "content": "npm install @capacitor/core\nnpm install -D @capacitor/cli"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Initializing Your Mobile Project",
+          "paragraph": "Initialize Capacitor with your project details. We'll use 'MyApp' as our example app name:",
+          "code": {
+            "language": "bash",
+            "content": "npx cap init \"MyApp\" \"com.example.myapp\" --web-dir=dist"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Configuring Capacitor",
+          "paragraph": "Create a capacitor.config.ts file in your project root. This configuration file is crucial for defining how your app behaves on mobile platforms:",
+          "code": {
+            "language": "typescript",
+            "content": "import { CapacitorConfig } from '@capacitor/cli';\n\nconst config: CapacitorConfig = {\n  appId: 'com.example.myapp',\n  appName: 'MyApp',\n  webDir: 'dist',\n  server: {\n    androidScheme: 'https',\n    allowNavigation: ['*'],\n  },\n  plugins: {\n    SplashScreen: {\n      launchShowDuration: 3000,\n      backgroundColor: '#ffffffff',\n      androidSplashResourceName: 'splash',\n      androidScaleType: 'CENTER_CROP',\n    },\n  },\n};\n\nexport default config;"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Next.js Configuration for Static Export",
+          "paragraph": "Update your next.config.js to support static exports, which is required for Capacitor integration:",
+          "code": {
+            "language": "javascript",
+            "content": "/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  reactStrictMode: true,\n  images: {\n    unoptimized: true,\n  },\n  output: 'export',\n  distDir: 'dist',\n  // Enable trailing slashes for consistent routing\n  trailingSlash: true,\n};\n\nmodule.exports = nextConfig;"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Adding Platform Support",
+          "paragraph": "Install and configure platform-specific packages for Android and iOS:",
+          "code": {
+            "language": "bash",
+            "content": "npm install @capacitor/android @capacitor/ios\nnpm install @capacitor/preferences @capacitor/app"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Building and Syncing",
+          "paragraph": "Build your Next.js project and initialize the native platforms:",
+          "code": {
+            "language": "bash",
+            "content": "npm run build\nnpx cap add android\nnpx cap add ios\nnpx cap sync"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Setting Up Android Signing",
+          "paragraph": "Create a keystore for signing your Android app. This is required for both testing and production releases:",
+          "code": {
+            "language": "bash",
+            "content": "keytool -genkey -v -keystore myapp-release-key.keystore -alias myapp_key -keyalg RSA -keysize 2048 -validity 10000"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Building for Production",
+          "paragraph": "Generate your production-ready Android APK:",
+          "code": {
+            "language": "bash",
+            "content": "npx cap build android --keystorepath myapp-release-key.keystore --keystorepass YOUR_PASSWORD --keystorealias myapp_key --keystorealiaspass YOUR_PASSWORD --androidreleasetype APK"
+          }
+        },
+        {
+          "id": 11,
+          "title": "Advanced Configuration: Native Features",
+          "paragraph": "To access device features like camera or geolocation, add the required Capacitor plugins:",
+          "code": {
+            "language": "typescript",
+            "content": "import { Camera } from '@capacitor/camera';\nimport { Geolocation } from '@capacitor/geolocation';\n\n// Example: Taking a photo\nasync function takePhoto() {\n  const image = await Camera.getPhoto({\n    quality: 90,\n    allowEditing: true,\n    resultType: 'uri'\n  });\n  \n  // Handle the image\n  const imageUrl = image.webPath;\n}\n\n// Example: Getting location\nasync function getCurrentPosition() {\n  const coordinates = await Geolocation.getCurrentPosition();\n  console.log('Current position:', coordinates);\n}"
+          }
+        },
+        {
+          "id": 12,
+          "title": "Environment-Specific Code",
+          "paragraph": "Create a utility to handle platform-specific code gracefully:",
+          "code": {
+            "language": "typescript",
+            "content": "// utils/platform.ts\nimport { Capacitor } from '@capacitor/core';\n\nexport const getPlatform = () => {\n  return Capacitor.getPlatform();\n};\n\nexport const isNative = () => {\n  return getPlatform() !== 'web';\n};\n\nexport const isAndroid = () => {\n  return getPlatform() === 'android';\n};\n\nexport const isIOS = () => {\n  return getPlatform() === 'ios';\n};"
+          }
+        },
+        {
+          "id": 13,
+          "title": "Testing Your Mobile App",
+          "paragraph": "Before deploying, test your app thoroughly on both platforms using the following commands:",
+          "code": {
+            "language": "bash",
+            "content": "# For Android\nnpx cap open android\n\n# For iOS\nnpx cap open ios"
+          }
+        },
+        {
+          "id": 14,
+          "title": "Troubleshooting Common Issues",
+          "paragraph": "If you encounter build issues, try cleaning your project and rebuilding:",
+          "code": {
+            "language": "bash",
+            "content": "# Clean build files\nrm -rf dist/ .next/\n\n# Reinstall dependencies\nnpm install\n\n# Rebuild and sync\nnpm run build\nnpx cap sync"
+          }
+        },
+        {
+          "id": 15,
+          "title": "Conclusion",
+          "paragraph": "You now have a fully functional mobile app powered by your Next.js codebase. Regular maintenance involves running 'npx cap sync' after web changes and testing thoroughly on both platforms. Remember to handle platform-specific features gracefully and maintain separate configurations for development and production environments."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "urlName": "integrating-firebase-capacitor-guide",
+      "title": "Setting Up Firebase with Capacitor: A Complete Guide",
+      "dateCreated": "2024-10-30",
+      "author": "StealthWork Team",
+      "topic": "Mobile Development",
+      "summary": "Learn how to integrate Firebase Authentication and other Firebase services into your Capacitor mobile app with our step-by-step guide.",
+      "mainImage": "/images/firebase-capacitor.jpg",
+      "content": [
+        {
+          "id": 1,
+          "title": "Getting Started with Firebase and Capacitor",
+          "paragraph": "Firebase provides powerful backend services for mobile applications. In this guide, we'll walk through integrating Firebase with your Capacitor app, focusing on authentication and basic setup.",
+          "links": [
+            {
+              "text": "Firebase Console",
+              "url": "https://console.firebase.google.com/"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Prerequisites",
+          "paragraph": "Before starting, ensure you have the following: Node.js installed, a Capacitor project set up, and Android Studio for Android development. You'll also need a Google account to access Firebase Console.",
+          "code": {
+            "language": "bash",
+            "content": "npm install @capacitor-firebase/authentication firebase\nnpx cap sync"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Creating a Firebase Project",
+          "paragraph": "Start by creating a new Firebase project in the Firebase Console. Navigate to the console, click 'Add Project', and follow the setup wizard. Make sure to enable the services you plan to use, such as Authentication, Firestore, or Realtime Database.",
+          "links": [
+            {
+              "text": "Firebase Project Setup Guide",
+              "url": "https://firebase.google.com/docs/projects/learn-more"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Android Setup: Using Android Studio",
+          "paragraph": "The easiest way to connect your Android app to Firebase is using Android Studio's Firebase Assistant. Open your Android project in Android Studio by running 'npx cap open android', then follow these steps:",
+          "steps": [
+            "In Android Studio, go to Tools > Firebase",
+            "Click on Authentication > Get Started with Firebase Auth",
+            "Click 'Connect to Firebase' and select your Firebase project",
+            "Android Studio will automatically add the necessary dependencies"
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Manual Android Setup",
+          "paragraph": "If you prefer manual setup, you'll need to add the google-services.json file to your project. Download it from the Firebase Console and place it in the correct location:",
+          "code": {
+            "language": "bash",
+            "content": "# Place google-services.json in:\nandroid/app/google-services.json"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Update Android Configuration",
+          "paragraph": "Add the Firebase SDK to your Android project by modifying the following files:",
+          "code": {
+            "language": "gradle",
+            "content": "// android/build.gradle\nbuildscript {\n  dependencies {\n    classpath 'com.google.gms:google-services:4.3.15'\n  }\n}\n\n// android/app/build.gradle\napply plugin: 'com.google.gms.google-services'\n\ndependencies {\n  implementation platform('com.google.firebase:firebase-bom:32.2.0')\n  implementation 'com.google.firebase:firebase-auth'\n}"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Capacitor Plugin Installation",
+          "paragraph": "Install the necessary Capacitor Firebase plugins for the services you plan to use. For this example, we'll focus on authentication:",
+          "code": {
+            "language": "typescript",
+            "content": "// capacitor.config.ts\nimport { CapacitorConfig } from '@capacitor/cli';\n\nconst config: CapacitorConfig = {\n  plugins: {\n    FirebaseAuthentication: {\n      skipNativeAuth: false,\n      providers: ['google.com', 'apple.com', 'facebook.com']\n    }\n  }\n};\n\nexport default config;"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Implementing Firebase Authentication",
+          "paragraph": "Here's a basic example of implementing Google Sign-In with Firebase:",
+          "code": {
+            "language": "typescript",
+            "content": "import { FirebaseAuthentication } from '@capacitor-firebase/authentication';\n\nasync function signInWithGoogle() {\n  try {\n    const result = await FirebaseAuthentication.signInWithGoogle();\n    console.log('User:', result.user);\n    return result.user;\n  } catch (error) {\n    console.error('Sign-in failed:', error);\n    throw error;\n  }\n}\n\nasync function signOut() {\n  await FirebaseAuthentication.signOut();\n  console.log('User signed out');\n}"
+          }
+        },
+        {
+          "id": 9,
+          "title": "State Management",
+          "paragraph": "Track authentication state changes using the provided listener:",
+          "code": {
+            "language": "typescript",
+            "content": "import { FirebaseAuthentication } from '@capacitor-firebase/authentication';\n\nFirebaseAuthentication.addListener('authStateChange', (change) => {\n  if (change.user) {\n    console.log('User is signed in:', change.user);\n  } else {\n    console.log('User is signed out');\n  }\n});"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Troubleshooting Common Issues",
+          "paragraph": "If you encounter SHA-1 or SHA-256 related errors with Google Sign-In, you'll need to add your debug and release key fingerprints to your Firebase project. You can find these in Android Studio under:",
+          "steps": [
+            "Open Android Studio",
+            "Navigate to Tools > App Links Assistant",
+            "Click 'Open Signing Report'",
+            "Copy the SHA-1 and SHA-256 values",
+            "Add these to your Firebase Console under Project Settings > Your Apps > Android Apps > Add Fingerprint"
+          ],
+          "links": [
+            {
+              "text": "Firebase Authentication Troubleshooting",
+              "url": "https://firebase.google.com/docs/auth/android/troubleshooting"
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "title": "Testing Your Integration",
+          "paragraph": "Before deploying, test your Firebase integration thoroughly. Make sure to test both development and production configurations:",
+          "code": {
+            "language": "bash",
+            "content": "# Build and run your app\nnpm run build\nnpx cap sync\nnpx cap open android"
+          }
+        },
+        {
+          "id": 12,
+          "title": "Conclusion",
+          "paragraph": "You now have a working Firebase integration in your Capacitor app. Remember to handle error cases appropriately and implement proper security rules in your Firebase Console. For production deployment, ensure you've configured proper authentication providers and have added all necessary SHA fingerprints to your Firebase project.",
+          "links": [
+            {
+              "text": "Firebase Documentation",
+              "url": "https://firebase.google.com/docs"
+            },
+            {
+              "text": "Capacitor Firebase Plugins",
+              "url": "https://github.com/capawesome-team/capacitor-firebase"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
