@@ -12,12 +12,20 @@
       "id": 2,
       "name": "GL.iNet GL-MT3000 (Beryl AX) Pocket-Sized Wi-Fi 6 Wireless Travel Gigabit Router | WiFi Router | OpenVPN, Wireguard, Connect to Public & Hotel Wi-Fi login Page, RV",
       "imageUrl": "https://m.media-amazon.com/images/I/41IiLQJghoL._AC_SX679_.jpg",
-      "productUrl": "https://amzn.to/3TTq6qp",
+      "productUrl": "https://amzn.to/4fVPVOP",
       "featured": true,
       "productType": "tech"
     },
     {
       "id": 3,
+      "name": "GL.iNet GL-SFT1200 (Opal) Secure Travel WiFi Router, AC1200 Dual Band Gigabit Ethernet Wireless Network, IPv6 USB 2.0 MU-MIMO DDR3, 128MB Ram Repeater Bridge Access Point Mode, Router for Public Use",
+      "imageUrl": "https://m.media-amazon.com/images/I/41yDlYxsHAL._AC_SL1000_.jpg",
+      "productUrl": "https://amzn.to/3CJ06Ie",
+      "featured": true,
+      "productType": "tech"
+    },
+    {
+      "id": 6,
       "name": "GL.iNet GL-AX1800(Flint) WiFi 6 Router -Dual Band Gigabit Wireless Internet Router | 5 x 1G Ethernet Ports | Up to 120 Devices | OpenVpn&WireGuard",
       "imageUrl": "https://m.media-amazon.com/images/I/41YJcGHPRAL._AC_SX679_.jpg",
       "productUrl": "https://amzn.to/4exxdgw",
